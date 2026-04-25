@@ -1,65 +1,71 @@
-import Image from "next/image";
+import ProgressCard from "./components/ProgressCard";
+import MotivationCard from "./components/MotivationCard";
+import Timeline from "./components/Timeline";
+import Button from "./components/Button";
+import { days } from "@/data/days";
 
 export default function Home() {
+  const today = new Date().toISOString().split("T")[0];
+  const currentDay = days.find((d) => d.date === today) || days[0];
+  const currentStageId = currentDay.stageId;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="pb-10">
+      <header className="px-5 pt-3 pb-2 text-center">
+        <p className="text-sm font-semibold text-neutral-600">أنت الآن في</p>
+        <h1 className="mt-1 text-4xl font-extrabold leading-tight text-[#1F5D3B] sm:text-[42px]">
+          {currentDay.title}
+        </h1>
+        <p className="mt-2 text-sm font-bold text-neutral-700">
+          من رحلة الحج
+        </p>
+      </header>
+
+      <div className="flex flex-col gap-5 px-5 pt-5">
+        <ProgressCard percentage={currentDay.progress} />
+
+        <MotivationCard message={currentDay.motivation} />
+
+        <Timeline currentStageId={currentStageId} />
+
+        <div className="flex flex-col gap-3">
+          <Button href="/duas" variant="secondary" icon={<HeartIcon />}>
+            أدعيتي
+          </Button>
+
+          <Button href="/emergency" variant="primary" icon={<BellIcon />}>
+            مساعدة صحية طارئة
+          </Button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
+  );
+}
+
+function HeartIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-6 w-6"
+      aria-hidden="true"
+    >
+      <path d="M12 21s-7-4.35-9.33-8.83C1.27 9.39 2.6 5.5 6.2 4.7c2.04-.45 4.06.4 5.3 1.95l.5.62.5-.62c1.24-1.55 3.26-2.4 5.3-1.95 3.6.8 4.93 4.69 3.53 7.47C19 16.65 12 21 12 21Z" />
+    </svg>
+  );
+}
+
+function BellIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-6 w-6"
+      aria-hidden="true"
+    >
+      <path d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22Zm6-6V11a6 6 0 1 0-12 0v5l-1.6 1.6V19h15.2v-1.4L18 16Z" />
+    </svg>
   );
 }
