@@ -31,11 +31,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-between px-5 pt-4 pb-0">
+      <nav className="flex items-center justify-between px-5 pt-0 pb-0">
         <Link
           href="/"
           aria-label="Qased - الصفحة الرئيسية"
-          className="mt-3 flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98]"
+          className="flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
           <Image
             src="/logo.svg"
