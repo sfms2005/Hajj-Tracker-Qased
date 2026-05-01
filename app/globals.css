@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #1f3d2b;
+  --color-primary-soft: #2e6b4a;
+  --color-secondary: #d1ae37;
+  --color-secondary-soft: #e6c768;
+  --color-bg: #f7f5f2;
+  --color-bg-soft: #f8f6f3;
+  --color-surface: #ffffff;
+  --color-track: #e5e1da;
+  --color-text: #2b2b2b;
+  --color-text-muted: #6b6b6b;
+
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+
+  --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.05);
+  --shadow-button: 0 10px 24px rgba(31, 61, 43, 0.18);
 }
 
 @theme inline {
@@ -12,20 +26,80 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   font-size: 17.5px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image: linear-gradient(to bottom, var(--color-bg-soft), #ffffff);
+  background-attachment: fixed;
+  font-family: "Geist", "Tajawal", "Noto Kufi Arabic", Arial, Helvetica,
+    sans-serif;
   zoom: 0.75;
+}
+
+@layer components {
+  .qs-card {
+    background-color: var(--color-surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    padding: 18px;
+  }
+
+  .qs-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background-image: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-primary-soft)
+    );
+    box-shadow: var(--shadow-button);
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+  }
+  .qs-btn-primary:hover {
+    filter: brightness(1.05);
+  }
+  .qs-btn-primary:active {
+    transform: scale(0.99);
+  }
+
+  .qs-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    font-weight: 700;
+    color: var(--color-primary);
+    background-color: transparent;
+    border: 1px solid var(--color-secondary);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+  .qs-btn-secondary:hover {
+    background-color: rgba(209, 174, 55, 0.08);
+  }
+  .qs-btn-secondary:active {
+    transform: scale(0.99);
+  }
+
+  .qs-heading {
+    color: var(--color-primary);
+    font-weight: 800;
+  }
+
+  .qs-accent {
+    color: var(--color-secondary);
+  }
 }

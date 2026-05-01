@@ -81,7 +81,7 @@ export default function RandomDuaButton({ categories }: Props) {
       <button
         type="button"
         onClick={openWithRandom}
-        className="flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-[#1F5D3B]/40 bg-white/60 px-5 py-4 text-base font-bold text-[#1F5D3B] transition-all hover:border-[#1F5D3B] hover:bg-white active:scale-[0.99]"
+        className="flex w-full items-center justify-center gap-3 rounded-2xl border border-dashed border-[#d1ae37] bg-white px-5 py-4 text-base font-bold text-[#1f3d2b] shadow-[0_8px_20px_rgba(0,0,0,0.05)] transition-all hover:bg-[#d1ae37]/10 active:scale-[0.99]"
       >
         <SparkleIcon />
         <span>دعاء عشوائي</span>
@@ -109,7 +109,7 @@ export default function RandomDuaButton({ categories }: Props) {
         }`}
       >
         <div className="overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <div className="flex items-center justify-between bg-[#1F5D3B] px-5 py-4 text-white">
+          <div className="flex items-center justify-between bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-5 py-4 text-white">
             <button
               type="button"
               onClick={close}
@@ -125,27 +125,27 @@ export default function RandomDuaButton({ categories }: Props) {
           </div>
 
           <div className="px-5 pt-6 pb-5">
-            <p className="text-center text-xs font-bold text-[#1F5D3B]">
+            <p className="text-center text-xs font-bold text-[#d1ae37]">
               {current?.category}
             </p>
 
             <div
-              className={`mt-4 min-h-[110px] rounded-2xl bg-[#F6F2E8] px-4 py-5 text-center transition-opacity duration-150 ${
+              className={`mt-4 min-h-[110px] rounded-2xl border border-[#e5e1da] bg-[#f7f5f2] px-4 py-5 text-center transition-opacity duration-150 ${
                 shuffling ? "opacity-30" : "opacity-100"
               }`}
             >
               <span
                 aria-hidden="true"
-                className="block text-3xl leading-none text-[#1F5D3B]"
+                className="block text-3xl leading-none text-[#d1ae37]"
               >
                 &ldquo;
               </span>
-              <p className="mt-1 text-[16px] font-semibold leading-relaxed text-neutral-800">
+              <p className="mt-1 text-[16px] font-semibold leading-relaxed text-[#2b2b2b]">
                 {current?.text}
               </p>
               <span
                 aria-hidden="true"
-                className="mt-1 block text-3xl leading-none text-[#1F5D3B]"
+                className="mt-1 block text-3xl leading-none text-[#d1ae37]"
               >
                 &rdquo;
               </span>
@@ -157,8 +157,8 @@ export default function RandomDuaButton({ categories }: Props) {
                 onClick={copyDua}
                 className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold transition-all active:scale-[0.98] ${
                   copied
-                    ? "bg-[#1F5D3B] text-white"
-                    : "bg-[#EDEAE2] text-[#1F5D3B] hover:bg-[#E2DFD4]"
+                    ? "bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] text-white"
+                    : "border border-[#d1ae37] bg-transparent text-[#1f3d2b] hover:bg-[#d1ae37]/10"
                 }`}
               >
                 {copied ? <CheckIcon /> : <CopyIcon />}
@@ -168,7 +168,7 @@ export default function RandomDuaButton({ categories }: Props) {
               <button
                 type="button"
                 onClick={shuffle}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#1F5D3B] px-4 py-3 text-sm font-bold text-white transition-all hover:bg-[#174a2f] active:scale-[0.98]"
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-4 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(31,61,43,0.18)] transition-all hover:brightness-110 active:scale-[0.98]"
               >
                 <ShuffleIcon />
                 <span>دعاء آخر</span>

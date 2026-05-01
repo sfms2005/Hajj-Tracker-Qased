@@ -43,7 +43,7 @@ export default function RootLayout({
       dir="rtl"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[#ECE6D9]">
+      <body className="flex min-h-full flex-col">
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
           <Navbar />
           <div className="flex-1">{children}</div>
@@ -51,7 +51,7 @@ export default function RootLayout({
             dir="ltr"
             className="px-5 py-6 text-center text-[14px] font-semibold text-neutral-600"
           >
-            Made with <span className="text-[#1F5D3B]">♡</span> by Sara Fawaz
+            Made with <span className="text-[#d1ae37]">♡</span> by Sara Fawaz
             Alsubaie
           </footer>
         </div>

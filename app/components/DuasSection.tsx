@@ -26,7 +26,7 @@ export default function DuasSection({ duas }: Props) {
 
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-center text-[15px] font-extrabold text-neutral-800">
+      <h2 className="text-center text-[15px] font-extrabold text-[#1f3d2b]">
         أدعية مقترحة لهذا اليوم
       </h2>
 
@@ -37,20 +37,20 @@ export default function DuasSection({ duas }: Props) {
         {duas.map((dua, i) => (
           <article
             key={i}
-            className="flex min-h-[150px] min-w-[68%] snap-center flex-col items-center justify-center gap-2 rounded-2xl border border-[#E5E0D7] bg-white px-4 py-5 text-center shadow-[0_4px_14px_rgba(0,0,0,0.04)]"
+            className="flex min-h-[150px] min-w-[68%] snap-center flex-col items-center justify-center gap-2 rounded-2xl bg-white px-4 py-5 text-center shadow-[0_8px_20px_rgba(0,0,0,0.05)]"
           >
             <span
               aria-hidden="true"
-              className="text-3xl leading-none text-[#1F5D3B]"
+              className="text-3xl leading-none text-[#d1ae37]"
             >
               &ldquo;
             </span>
-            <p className="text-[14px] font-semibold leading-relaxed text-neutral-800">
+            <p className="text-[14px] font-semibold leading-relaxed text-[#2b2b2b]">
               {dua}
             </p>
             <span
               aria-hidden="true"
-              className="text-3xl leading-none text-[#1F5D3B]"
+              className="text-3xl leading-none text-[#d1ae37]"
             >
               &rdquo;
             </span>
@@ -64,8 +64,8 @@ export default function DuasSection({ duas }: Props) {
             key={i}
             className={`h-1.5 rounded-full transition-all duration-200 ${
               i === activeIndex
-                ? "w-4 bg-[#1F5D3B]"
-                : "w-1.5 bg-[#C9C2B5]"
+                ? "w-4 bg-[#1f3d2b]"
+                : "w-1.5 bg-[#e5e1da]"
             }`}
           />
         ))}

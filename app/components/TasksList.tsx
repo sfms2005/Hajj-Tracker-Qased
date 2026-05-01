@@ -43,19 +43,19 @@ export default function TasksList({ stageId, tasks }: Props) {
   };
 
   return (
-    <ul className="overflow-hidden rounded-2xl bg-white shadow-[0_4px_14px_rgba(0,0,0,0.04)]">
+    <ul className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_20px_rgba(0,0,0,0.05)]">
       {tasks.map((task, i) => {
         const isChecked = checked[i];
         return (
           <li
             key={i}
-            className="flex items-center gap-3 border-b border-[#EEE9DD] px-4 py-3.5 last:border-b-0"
+            className="flex items-center gap-3 border-b border-[#e5e1da] px-4 py-3.5 last:border-b-0"
           >
             <p
               className={`flex-1 text-right text-[14px] font-semibold transition-colors duration-200 ${
                 isChecked
                   ? "text-neutral-400 line-through"
-                  : "text-neutral-800"
+                  : "text-[#2b2b2b]"
               }`}
             >
               {task}
@@ -69,8 +69,8 @@ export default function TasksList({ stageId, tasks }: Props) {
               onClick={() => toggle(i)}
               className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md border-2 transition-all duration-200 active:scale-90 ${
                 isChecked
-                  ? "scale-105 border-[#1F5D3B] bg-[#1F5D3B]"
-                  : "border-[#D5CFC0] bg-white hover:border-[#1F5D3B]/60"
+                  ? "scale-105 border-transparent bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)]"
+                  : "border-[#d1ae37] bg-white hover:bg-[#d1ae37]/10"
               }`}
             >
               <svg

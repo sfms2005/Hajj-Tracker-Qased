@@ -52,11 +52,11 @@ export default function Navbar() {
           aria-label="فتح القائمة"
           aria-expanded={isOpen}
           onClick={() => setIsOpen(true)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-md transition-colors hover:bg-[#1F5D3B]/5 active:bg-[#1F5D3B]/10"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-md transition-colors hover:bg-[#1f3d2b]/5 active:bg-[#1f3d2b]/10"
         >
-          <span className="block h-[2.5px] w-6 rounded-full bg-[#1F5D3B]" />
-          <span className="block h-[2.5px] w-6 rounded-full bg-[#1F5D3B]" />
-          <span className="block h-[2.5px] w-6 rounded-full bg-[#1F5D3B]" />
+          <span className="block h-[2.5px] w-6 rounded-full bg-[#1f3d2b]" />
+          <span className="block h-[2.5px] w-6 rounded-full bg-[#1f3d2b]" />
+          <span className="block h-[2.5px] w-6 rounded-full bg-[#1f3d2b]" />
         </button>
       </nav>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
         dir="rtl"
         aria-hidden={!isOpen}
         aria-label="القائمة الجانبية"
-        className={`fixed top-0 left-0 z-50 h-full w-[72%] max-w-xs bg-[#1F5D3B] text-white shadow-[0_0_40px_rgba(0,0,0,0.25)] transition-transform duration-300 ease-out ${
+        className={`fixed top-0 left-0 z-50 h-full w-[72%] max-w-xs bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] text-white shadow-[0_0_40px_rgba(0,0,0,0.25)] transition-transform duration-300 ease-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

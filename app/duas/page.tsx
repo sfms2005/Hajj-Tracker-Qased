@@ -19,14 +19,14 @@ export default function DuasPage() {
     <main className="-mt-6 px-5 pb-10 pt-0">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-bold text-[#1F5D3B] transition-colors hover:bg-[#1F5D3B]/5"
+        className="inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-bold text-[#1f3d2b] transition-colors hover:bg-[#1f3d2b]/5"
       >
         <ArrowRightIcon />
         <span>الصفحة الرئيسية</span>
       </Link>
 
       <header className="mt-2 text-center">
-        <h1 className="text-3xl font-extrabold leading-tight text-[#1F5D3B] sm:text-4xl">
+        <h1 className="inline-block border-b-2 border-[#d1ae37] pb-1 text-3xl font-extrabold leading-tight text-[#1f3d2b] sm:text-4xl">
           أدعيتي
         </h1>
         <p className="mt-2 text-sm font-semibold text-neutral-600">
@@ -42,11 +42,11 @@ export default function DuasPage() {
         {duaCategories.map((category) => (
           <section key={category.id} className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <span className="h-2 w-2 shrink-0 rounded-full bg-[#1F5D3B]" />
-              <h2 className="text-[17px] font-extrabold text-[#1F5D3B]">
+              <span className="h-2 w-2 shrink-0 rounded-full bg-[#d1ae37]" />
+              <h2 className="text-[17px] font-extrabold text-[#1f3d2b]">
                 {category.title}
               </h2>
-              <span className="h-px flex-1 bg-[#D8D2C4]" />
+              <span className="h-px flex-1 bg-[#e5e1da]" />
             </div>
 
             <div className="flex flex-col gap-2.5">
@@ -60,7 +60,7 @@ export default function DuasPage() {
 
       <Link
         href="/"
-        className="mt-10 flex w-full items-center justify-center gap-3 rounded-2xl bg-[#1F5D3B] px-5 py-4 text-base font-bold text-white shadow-[0_8px_22px_rgba(31,93,59,0.25)] transition-all hover:bg-[#174a2f]"
+        className="mt-10 flex w-full items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-5 py-4 text-base font-bold text-white shadow-[0_10px_24px_rgba(31,61,43,0.18)] transition-all hover:brightness-110 active:scale-[0.99]"
       >
         <ArrowRightIcon />
         <span>العودة للصفحة الرئيسية</span>

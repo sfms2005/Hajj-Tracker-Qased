@@ -32,7 +32,7 @@ export default function Timeline({ currentStageId }: Props) {
         aria-hidden="true"
       >
         <g
-          stroke="#1F5D3B"
+          stroke="#1f3d2b"
           strokeWidth="2.5"
           strokeLinecap="round"
           fill="none"
@@ -82,7 +82,7 @@ function HereIndicator({ side }: { side: "left" | "right" }) {
         ...(isRight ? { right: "-58px" } : { left: "-58px" }),
       }}
     >
-      <span className="block whitespace-nowrap rounded-lg bg-[#1F5D3B] px-3 py-1 text-[12px] font-bold text-white shadow-md">
+      <span className="block whitespace-nowrap rounded-lg bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-3 py-1 text-[12px] font-bold text-white shadow-[0_8px_20px_rgba(0,0,0,0.05)]">
         أنت هنا
       </span>
       <svg
@@ -97,7 +97,7 @@ function HereIndicator({ side }: { side: "left" | "right" }) {
         }}
         aria-hidden="true"
       >
-        <g stroke="#1F5D3B" strokeWidth="2" strokeLinecap="round" fill="none">
+        <g stroke="#1f3d2b" strokeWidth="2" strokeLinecap="round" fill="none">
           {isRight ? (
             <>
               <path d="M 40 4 C 34 14, 22 26, 10 34" strokeDasharray="3 4" />

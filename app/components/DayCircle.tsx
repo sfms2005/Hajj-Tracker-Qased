@@ -8,12 +8,12 @@ interface Props {
 
 export default function DayCircle({ stage, isActive }: Props) {
   const base =
-    "flex flex-col items-center justify-center rounded-full text-center leading-tight transition-all duration-200 hover:scale-[1.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1F5D3B]/40";
+    "flex flex-col items-center justify-center rounded-full text-center leading-tight transition-all duration-200 hover:scale-[1.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d1ae37]/50";
 
   const activeStyle =
-    "h-[120px] w-[120px] bg-[#1F5D3B] text-white shadow-[0_12px_28px_rgba(31,93,59,0.32)]";
+    "h-[120px] w-[120px] bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] text-white shadow-[0_12px_28px_rgba(31,61,43,0.32)] ring-2 ring-[#d1ae37]/70 ring-offset-2 ring-offset-[#f7f5f2]";
   const idleStyle =
-    "h-[108px] w-[108px] border border-[#E5E0D7] bg-[#F1EEE6] text-[#1F5D3B] hover:border-[#1F5D3B]/40";
+    "h-[108px] w-[108px] bg-white text-[#1f3d2b] shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)]";
 
   return (
     <Link

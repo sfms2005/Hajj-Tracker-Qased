@@ -27,7 +27,7 @@ export default async function DayPage({
         <p className="text-sm font-semibold text-neutral-600">
           أنت الآن تشاهد
         </p>
-        <h1 className="mt-1 text-4xl font-extrabold leading-tight text-[#1F5D3B] sm:text-[42px]">
+        <h1 className="mt-1 inline-block border-b-2 border-[#d1ae37] pb-1 text-2xl font-extrabold leading-tight text-[#1f3d2b] sm:text-3xl">
           {details.title}
         </h1>
         <p className="mt-2 text-sm font-bold text-neutral-700">
@@ -44,7 +44,7 @@ export default async function DayPage({
 
         <Link
           href="/"
-          className="mt-2 flex items-center justify-center gap-3 rounded-2xl bg-[#1F5D3B] px-5 py-4 text-base font-bold text-white shadow-[0_8px_22px_rgba(31,93,59,0.25)] transition-colors hover:bg-[#174a2f]"
+          className="mt-2 flex items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-5 py-4 text-base font-bold text-white shadow-[0_10px_24px_rgba(31,61,43,0.18)] transition-all hover:brightness-110 active:scale-[0.99]"
         >
           <span>العودة للصفحة الرئيسية</span>
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15">
