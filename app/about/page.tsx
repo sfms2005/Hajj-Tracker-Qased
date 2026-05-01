@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <main className="-mt-3 px-5 pt-2 pb-6">
+    <main className="-mt-6 px-5 pt-2 pb-6">
       <h1 className="text-3xl font-extrabold text-[#1F5D3B]">من نحن</h1>
 
       <p className="mt-4 text-xl font-bold leading-relaxed text-neutral-800">

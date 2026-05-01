@@ -16,7 +16,7 @@ export default function DuasPage() {
   );
 
   return (
-    <main className="-mt-3 px-5 pb-10 pt-0">
+    <main className="-mt-6 px-5 pb-10 pt-0">
       <Link
         href="/"
         className="inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-bold text-[#1F5D3B] transition-colors hover:bg-[#1F5D3B]/5"

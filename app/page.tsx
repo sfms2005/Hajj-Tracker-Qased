@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <main className="pb-10">
-      <header className="-mt-3 px-5 pt-0 pb-2 text-center">
+      <header className="-mt-6 px-5 pt-0 pb-2 text-center">
         <p className="text-sm font-semibold text-neutral-600">أنت الآن في</p>
         <h1 className="mt-1 text-4xl font-extrabold leading-tight text-[#1F5D3B] sm:text-[42px]">
           {currentDay.title}

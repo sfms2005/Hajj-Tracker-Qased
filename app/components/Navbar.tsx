@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-between px-5 py-4">
+      <nav className="flex items-center justify-between px-5 pt-4 pb-0">
         <Link
           href="/"
           aria-label="Qased - الصفحة الرئيسية"
