@@ -13,7 +13,7 @@ export default function Home() {
     <main className="pb-10">
       <header className="-mt-6 px-5 pt-0 pb-2 text-center">
         <p className="text-sm font-semibold text-neutral-600">أنت الآن في</p>
-        <h1 className="mt-1 text-4xl font-extrabold leading-tight text-[#1F5D3B] sm:text-[42px]">
+        <h1 className="mt-1 text-2xl font-extrabold leading-tight text-[#1F5D3B] sm:text-3xl">
           {currentDay.title}
         </h1>
         <p className="mt-2 text-sm font-bold text-neutral-700">
