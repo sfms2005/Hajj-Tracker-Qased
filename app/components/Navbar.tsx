@@ -34,12 +34,12 @@ export default function Navbar() {
       <nav className="flex items-center justify-between px-5 pt-0 pb-0">
         <Link
           href="/"
-          aria-label="Qased - الصفحة الرئيسية"
+          aria-label="حملة قاصد - الصفحة الرئيسية"
           className="flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
           <Image
             src="/logo.svg"
-            alt="Qased"
+            alt="حملة قاصد"
             width={1536}
             height={1024}
             priority

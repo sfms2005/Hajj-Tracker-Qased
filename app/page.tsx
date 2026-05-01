@@ -32,10 +32,6 @@ export default function Home() {
           <Button href="/duas" variant="secondary" icon={<HeartIcon />}>
             أدعيتي
           </Button>
-
-          <Button href="/emergency" variant="primary" icon={<BellIcon />}>
-            مساعدة صحية طارئة
-          </Button>
         </div>
       </div>
     </main>
@@ -52,20 +48,6 @@ function HeartIcon() {
       aria-hidden="true"
     >
       <path d="M12 21s-7-4.35-9.33-8.83C1.27 9.39 2.6 5.5 6.2 4.7c2.04-.45 4.06.4 5.3 1.95l.5.62.5-.62c1.24-1.55 3.26-2.4 5.3-1.95 3.6.8 4.93 4.69 3.53 7.47C19 16.65 12 21 12 21Z" />
-    </svg>
-  );
-}
-
-function BellIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-6 w-6"
-      aria-hidden="true"
-    >
-      <path d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22Zm6-6V11a6 6 0 1 0-12 0v5l-1.6 1.6V19h15.2v-1.4L18 16Z" />
     </svg>
   );
 }

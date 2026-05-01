@@ -14,8 +14,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Qased - رحلة الحج",
-  description: "تطبيق قاصد لمتابعة رحلة الحج",
+  title: "رحلة الحج - حملة قاصد",
+  description:
+    "منصة رقمية لمتابعة رحلة الحجاج ضمن حملة قاصد خطوة بخطوة بسهولة وتنظيم",
+  openGraph: {
+    title: "رحلة الحج - حملة قاصد",
+    description: "تابع رحلتك في الحج مع حملة قاصد بكل سهولة وطمأنينة",
+    url: "https://hajj-tracker-qased.vercel.app",
+    siteName: "حملة قاصد",
+    images: [
+      {
+        url: "/logo.png",
+      },
+    ],
+    locale: "ar_SA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

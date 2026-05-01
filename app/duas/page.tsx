@@ -5,7 +5,7 @@ import RandomDuaButton from "../components/RandomDuaButton";
 import { duaCategories } from "@/data/duas";
 
 export const metadata = {
-  title: "أدعيتي - Qased",
+  title: "أدعيتي - حملة قاصد",
   description: "مجموعة من الأدعية المختارة لرحلة الحج والحياة اليومية",
 };
 
