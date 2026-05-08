@@ -7,6 +7,20 @@ export interface HajjDay {
 }
 
 export const days: HajjDay[] = [
+/*{
+    date: "2026-05-08",
+    stageId: 1,
+    title: "اليوم الأول",
+    progress: 1,
+    motivation: "بداية مباركة، هيئ قلبك ونيتك، فالأعظم قادم بإذن الله",
+  },
+  {
+    date: "2026-05-09",
+    stageId: 1,
+    title: "اليوم الثاني",
+    progress: 1,
+    motivation: "بداية مباركة، هيئ قلبك ونيتك، فالأعظم قادم بإذن الله",
+  },*/
   {
     date: "2026-05-23",
     stageId: 1,
@@ -14,6 +28,7 @@ export const days: HajjDay[] = [
     progress: 1,
     motivation: "بداية مباركة، هيئ قلبك ونيتك، فالأعظم قادم بإذن الله",
   },
+
   {
     date: "2026-05-24",
     stageId: 1,
@@ -86,6 +101,29 @@ export const days: HajjDay[] = [
 ];
 
 export function getCurrentDay(): HajjDay {
-  const today = new Date().toISOString().split("T")[0];
-  return days.find((d) => d.date === today) || days[0];
+  const today = new Date().toLocaleDateString("en-CA", {
+    timeZone: "Asia/Riyadh",
+  });
+
+  const found = days.find((d) => d.date === today);
+
+  if (found) return found;
+
+  // If date is after last day → return last day
+  if (today > days[days.length - 1].date) {
+    return days[days.length - 1];
+  }
+
+  // If before start → return first day
+  if (today < days[0].date) {
+    return days[0];
+  }
+
+  // Between first and last but no matching row (gaps): last day whose date ≤ today
+  let candidate = days[0];
+  for (const d of days) {
+    if (d.date <= today) candidate = d;
+    else break;
+  }
+  return candidate;
 }

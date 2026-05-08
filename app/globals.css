@@ -22,12 +22,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-tajawal), var(--font-geist-sans), ui-sans-serif,
+    system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
 html {
-  font-size: 17.5px;
+  font-size: 18px;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -35,9 +37,9 @@ body {
   background-color: var(--color-bg);
   background-image: linear-gradient(to bottom, var(--color-bg-soft), #ffffff);
   background-attachment: fixed;
-  font-family: "Geist", "Tajawal", "Noto Kufi Arabic", Arial, Helvetica,
-    sans-serif;
-  zoom: 0.75;
+  font-family: var(--font-tajawal), var(--font-geist-sans), "Noto Kufi Arabic",
+    Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 @layer components {

@@ -2,11 +2,10 @@ import ProgressCard from "./components/ProgressCard";
 import MotivationCard from "./components/MotivationCard";
 import Timeline from "./components/Timeline";
 import Button from "./components/Button";
-import { days } from "@/data/days";
+import { getCurrentDay } from "@/data/days";
 
 export default function Home() {
-  const today = new Date().toISOString().split("T")[0];
-  const currentDay = days.find((d) => d.date === today) || days[0];
+  const currentDay = getCurrentDay();
   const currentStageId = currentDay.stageId;
 
   return (
@@ -32,6 +31,9 @@ export default function Home() {
           <Button href="/duas" variant="secondary" icon={<HeartIcon />}>
             أدعيتي
           </Button>
+          <Button href="/mashair" variant="primary" icon={<MapPinIcon />}>
+            مواقع المشاعر
+          </Button>
         </div>
       </div>
     </main>
@@ -48,6 +50,25 @@ function HeartIcon() {
       aria-hidden="true"
     >
       <path d="M12 21s-7-4.35-9.33-8.83C1.27 9.39 2.6 5.5 6.2 4.7c2.04-.45 4.06.4 5.3 1.95l.5.62.5-.62c1.24-1.55 3.26-2.4 5.3-1.95 3.6.8 4.93 4.69 3.53 7.47C19 16.65 12 21 12 21Z" />
+    </svg>
+  );
+}
+
+function MapPinIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-6 w-6"
+      aria-hidden="true"
+    >
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
     </svg>
   );
 }

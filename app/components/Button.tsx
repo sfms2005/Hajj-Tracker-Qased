@@ -14,6 +14,12 @@ interface LinkProps extends BaseProps {
   href: string;
   onClick?: never;
   type?: never;
+  /** Opens in a new tab; use for external URLs (e.g. Google Maps). */
+  external?: boolean;
+  /**
+   * Use a plain anchor element for tel: and mailto: links (not Next.js Link).
+   */
+  native?: boolean;
 }
 
 interface ButtonProps extends BaseProps {
@@ -47,8 +53,30 @@ export default function Button(props: Props) {
   const finalClass = `${base} ${variantStyles[variant]} ${className}`;
 
   if ("href" in props && props.href) {
+    const { external, href, native } = props;
+
+    if (native) {
+      return (
+        <a href={href} className={finalClass}>
+          {inner}
+        </a>
+      );
+    }
+
+    if (external) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={finalClass}
+        >
+          {inner}
+        </a>
+      );
+    }
     return (
-      <Link href={props.href} className={finalClass}>
+      <Link href={href} className={finalClass}>
         {inner}
       </Link>
     );

@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
 
 const menuItems = [
   { href: "/", label: "الصفحة الرئيسية" },
+  { href: "/mashair", label: "مواقع المشاعر" },
+  { href: "/services", label: "خدماتنا" },
+  { href: "/vision", label: "رؤيتنا" },
   { href: "/about", label: "من نحن" },
+  { href: "/contact", label: "تواصلوا معنا" },
 ];
 
 export default function Navbar() {
