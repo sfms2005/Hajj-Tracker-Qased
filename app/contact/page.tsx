@@ -2,8 +2,7 @@ import Button from "../components/Button";
 
 export const metadata = {
   title: "تواصلوا معنا - حملة قاصد المشاعر",
-  description:
-    "الموقع الرسمي، الهاتف، البريد الإلكتروني، وحساب قاصد على X.",
+  description: "الموقع الرسمي، الهاتف، البريد الإلكتروني، وحساب قاصد.",
 };
 
 const X_PROFILE = "https://x.com/qased0haj";
@@ -77,7 +76,7 @@ export default function ContactPage() {
             external
             icon={<XIcon />}
           >
-            حساب قاصد على X
+            حساب قاصد على
           </Button>
         </section>
       </div>
