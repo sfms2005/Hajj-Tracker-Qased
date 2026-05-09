@@ -49,7 +49,7 @@ export default function TasksList({ stageId, tasks }: Props) {
         return (
           <li
             key={i}
-            className="flex items-center gap-3 border-b border-[#e5e1da] px-4 py-3.5 last:border-b-0"
+            className="flex items-center gap-3 border-b border-[var(--color-track)] px-4 py-3.5 last:border-b-0"
           >
             <p
               className={`flex-1 text-right text-[14px] font-semibold transition-colors duration-200 ${

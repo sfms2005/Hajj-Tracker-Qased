@@ -8,7 +8,7 @@ export default function ProgressCard({ percentage }: Props) {
   return (
     <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.05)]">
       <div className="flex items-center gap-2.5">
-        <div className="relative h-2 w-full overflow-hidden rounded-full bg-[#e5e1da]">
+        <div className="relative h-2 w-full overflow-hidden rounded-full bg-[var(--color-track)]">
           <div
             className="h-full rounded-full bg-[#1f3d2b] transition-[width] duration-500 ease-out"
             style={{ width: `${safePercent}%` }}

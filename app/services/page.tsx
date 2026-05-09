@@ -15,7 +15,7 @@ export default function ServicesPage() {
         className="pointer-events-none absolute left-1/2 top-[46%] z-0 -translate-x-1/2 -translate-y-1/2"
         aria-hidden="true"
       >
-        <div className="h-[min(88vw,24rem)] w-[min(88vw,24rem)] rotate-45 rounded-[2.75rem] bg-[#e5e1da]/40" />
+        <div className="h-[min(88vw,24rem)] w-[min(88vw,24rem)] rotate-45 rounded-[2.75rem] bg-[rgba(28,104,67,0.07)]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-2xl text-right">

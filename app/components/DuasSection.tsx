@@ -65,7 +65,7 @@ export default function DuasSection({ duas }: Props) {
             className={`h-1.5 rounded-full transition-all duration-200 ${
               i === activeIndex
                 ? "w-4 bg-[#1f3d2b]"
-                : "w-1.5 bg-[#e5e1da]"
+                : "w-1.5 bg-[var(--color-track)]"
             }`}
           />
         ))}

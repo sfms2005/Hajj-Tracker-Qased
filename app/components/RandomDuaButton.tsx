@@ -130,7 +130,7 @@ export default function RandomDuaButton({ categories }: Props) {
             </p>
 
             <div
-              className={`mt-4 min-h-[110px] rounded-2xl border border-[#e5e1da] bg-[#f7f5f2] px-4 py-5 text-center transition-opacity duration-150 ${
+              className={`mt-4 min-h-[110px] rounded-2xl border border-[var(--color-track)] bg-[var(--color-bg)] px-4 py-5 text-center transition-opacity duration-150 ${
                 shuffling ? "opacity-30" : "opacity-100"
               }`}
             >

@@ -2,7 +2,6 @@ import Link from "next/link";
 import DuaCard from "../components/DuaCard";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import RandomDuaButton from "../components/RandomDuaButton";
-import Button from "../components/Button";
 import { duaCategories } from "@/data/duas";
 
 export const metadata = {
@@ -47,7 +46,7 @@ export default function DuasPage() {
               <h2 className="text-[17px] font-extrabold text-[#1f3d2b]">
                 {category.title}
               </h2>
-              <span className="h-px flex-1 bg-[#e5e1da]" />
+              <span className="h-px flex-1 bg-[var(--color-track)]" />
             </div>
 
             <div className="flex flex-col gap-2.5">
@@ -59,9 +58,13 @@ export default function DuasPage() {
         ))}
       </div>
 
-      <Button href="/" variant="primary" icon={<ArrowRightIcon />} className="mt-10">
-        العودة للصفحة الرئيسية
-      </Button>
+      <Link
+        href="/"
+        className="mt-10 flex w-full items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-5 py-4 text-base font-bold text-white shadow-[0_10px_24px_rgba(31,61,43,0.18)] transition-all hover:brightness-110 active:scale-[0.99]"
+      >
+        <ArrowRightIcon />
+        <span>العودة للصفحة الرئيسية</span>
+      </Link>
 
       <ScrollToTopButton />
     </main>
