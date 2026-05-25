@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { DuaCategory } from "@/data/duas";
+import type { DuaCategory, DuaItem } from "@/data/duas";
+import DuaSourceDetails from "./DuaSourceDetails";
 
 interface Props {
   categories: DuaCategory[];
 }
 
 interface RandomDua {
-  text: string;
+  dua: DuaItem;
   category: string;
 }
 
@@ -20,7 +21,7 @@ export default function RandomDuaButton({ categories }: Props) {
 
   const pickRandom = (): RandomDua => {
     const allDuas: RandomDua[] = categories.flatMap((cat) =>
-      cat.duas.map((text) => ({ text, category: cat.title })),
+      cat.duas.map((dua) => ({ dua, category: cat.title })),
     );
 
     if (!current) {
@@ -28,7 +29,7 @@ export default function RandomDuaButton({ categories }: Props) {
       return allDuas[idx];
     }
 
-    const others = allDuas.filter((d) => d.text !== current.text);
+    const others = allDuas.filter((d) => d.dua.text !== current.dua.text);
     const idx = Math.floor(Math.random() * others.length);
     return others[idx];
   };
@@ -53,7 +54,7 @@ export default function RandomDuaButton({ categories }: Props) {
   const copyDua = async () => {
     if (!current) return;
     try {
-      await navigator.clipboard.writeText(current.text);
+      await navigator.clipboard.writeText(current.dua.text);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
@@ -81,10 +82,10 @@ export default function RandomDuaButton({ categories }: Props) {
       <button
         type="button"
         onClick={openWithRandom}
-        className="flex w-full items-center justify-center gap-3 rounded-2xl border border-dashed border-[#d1ae37] bg-white px-5 py-4 text-base font-bold text-[#1f3d2b] shadow-[0_8px_20px_rgba(0,0,0,0.05)] transition-all hover:bg-[#d1ae37]/10 active:scale-[0.99]"
+        className="flex w-full items-center justify-center gap-3 rounded-2xl border border-dashed border-[#c9a04a] bg-white px-5 py-4 text-base font-bold text-[#1a1612] shadow-[0_8px_24px_rgba(26,22,18,0.06),0_1px_3px_rgba(0,0,0,0.04)] transition-all hover:border-[#a07628] hover:bg-[#c9a04a]/12 active:scale-[0.99]"
       >
         <SparkleIcon />
-        <span>دعاء عشوائي</span>
+        <span>دعاء مسنونًا عشوائيًا</span>
       </button>
 
       <button
@@ -101,51 +102,64 @@ export default function RandomDuaButton({ categories }: Props) {
         role="dialog"
         aria-modal="true"
         aria-hidden={!isOpen}
-        aria-label="دعاء عشوائي"
+        aria-label="دعاء مسنونًا عشوائيًا"
         className={`fixed inset-x-0 bottom-0 z-50 mx-auto flex max-w-md flex-col items-stretch px-4 pb-6 transition-all duration-300 ${
           isOpen
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-6 opacity-0"
         }`}
       >
-        <div className="overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <div className="flex items-center justify-between bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-5 py-4 text-white">
+        <div className="overflow-hidden rounded-3xl border border-[#c9a04a]/25 bg-white shadow-[0_24px_70px_rgba(13,11,9,0.35)]">
+          <div className="relative flex items-center justify-between bg-[linear-gradient(135deg,#0d0b09,#1a1612_55%,#2a241e)] px-5 py-4 text-[#f0d175]">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-5 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(201,160,74,0.6),transparent)]"
+            />
             <button
               type="button"
               onClick={close}
               aria-label="إغلاق"
-              className="flex h-8 w-8 items-center justify-center rounded-full transition-colors hover:bg-white/15 active:bg-white/25"
+              className="flex h-8 w-8 items-center justify-center rounded-full transition-colors hover:bg-white/12 active:bg-white/20"
             >
               <CloseIcon />
             </button>
-            <h2 className="flex items-center gap-2 text-base font-extrabold">
+            <h2 className="flex items-center gap-2 text-base font-extrabold qs-gold-text">
               <SparkleIcon />
-              <span>دعاء عشوائي</span>
+              <span>دعاء مسنونًا عشوائيًا</span>
             </h2>
           </div>
 
           <div className="px-5 pt-6 pb-5">
-            <p className="text-center text-xs font-bold text-[#d1ae37]">
+            <p className="text-center text-xs font-bold text-[#a07628]">
               {current?.category}
             </p>
 
             <div
-              className={`mt-4 min-h-[110px] rounded-2xl border border-[var(--color-track)] bg-[var(--color-bg)] px-4 py-5 text-center transition-opacity duration-150 ${
+              dir="rtl"
+              className={`mt-4 min-h-[110px] rounded-2xl border border-[#c9a04a]/25 bg-[#fbf6e8] px-4 py-5 text-right transition-opacity duration-150 ${
                 shuffling ? "opacity-30" : "opacity-100"
               }`}
             >
               <span
                 aria-hidden="true"
-                className="block text-3xl leading-none text-[#d1ae37]"
+                className="block qs-gold-text text-3xl font-bold leading-none text-center"
               >
                 &ldquo;
               </span>
-              <p className="mt-1 text-[16px] font-semibold leading-relaxed text-[#2b2b2b]">
-                {current?.text}
+              <p className="mt-1 text-[16px] font-bold leading-[1.85] text-[#1a1612]">
+                {current?.dua.text}
               </p>
+              {current?.dua.hint && (
+                <p className="mt-2 text-center text-[11px] font-semibold text-[#a07628]/80">
+                  {current.dua.hint}
+                </p>
+              )}
+              {current?.dua.source && (
+                <DuaSourceDetails source={current.dua.source} />
+              )}
               <span
                 aria-hidden="true"
-                className="mt-1 block text-3xl leading-none text-[#d1ae37]"
+                className="mt-1 block qs-gold-text text-3xl font-bold leading-none text-center"
               >
                 &rdquo;
               </span>
@@ -157,8 +171,8 @@ export default function RandomDuaButton({ categories }: Props) {
                 onClick={copyDua}
                 className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold transition-all active:scale-[0.98] ${
                   copied
-                    ? "bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] text-white"
-                    : "border border-[#d1ae37] bg-transparent text-[#1f3d2b] hover:bg-[#d1ae37]/10"
+                    ? "bg-[linear-gradient(135deg,#0d0b09,#1a1612,#2a241e)] text-[#f0d175] shadow-[inset_0_0_0_1px_rgba(201,160,74,0.4)]"
+                    : "border border-[#c9a04a] bg-transparent text-[#1a1612] hover:bg-[#c9a04a]/12"
                 }`}
               >
                 {copied ? <CheckIcon /> : <CopyIcon />}
@@ -168,7 +182,7 @@ export default function RandomDuaButton({ categories }: Props) {
               <button
                 type="button"
                 onClick={shuffle}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#1f3d2b,#2e6b4a)] px-4 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(31,61,43,0.18)] transition-all hover:brightness-110 active:scale-[0.98]"
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#0d0b09,#1a1612_50%,#2a241e)] px-4 py-3 text-sm font-bold text-[#f7f1e0] shadow-[0_12px_28px_rgba(13,11,9,0.32),inset_0_0_0_1px_rgba(201,160,74,0.28)] transition-all hover:brightness-115 active:scale-[0.98]"
               >
                 <ShuffleIcon />
                 <span>دعاء آخر</span>
